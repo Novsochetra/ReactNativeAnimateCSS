@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "android:clean": "cd android && ./gradlew clean && ./gradlew cleanBuildCache",
