@@ -15,6 +15,7 @@ export const Flash: React.FC<IFlashContainerProps> = ({
   children,
   delayInMS = Constant.DEFAULT_DELAY_IN_MS,
   durationInMS = Constant.DEFAULT_DURATION_IN_MS,
+  preset = 'EASE_IN_QUAD',
 }) => {
   const opacity = useSharedValue(Constant.MIN_OPACITY);
   const animatedStyle = useAnimatedStyle<
@@ -31,7 +32,7 @@ export const Flash: React.FC<IFlashContainerProps> = ({
       withRepeat(
         withTiming(Constant.MAX_OPACITY, {
           duration: durationInMS,
-          easing: EasingPreset.EASE_IN_QUAD,
+          easing: EasingPreset[preset],
         }),
         2,
       ),
