@@ -20,22 +20,22 @@ export const LightSpeedOutRight: React.FC<ILightSpeedOutRightContainerProps> =
     children,
     delayInMS = Constant.DEFAULT_DELAY_IN_MS,
     durationInMS = Constant.DEFAULT_DURATION_IN_MS,
-    startPositionX = Constant.INITIAL_TRANSLATE_X,
+    finalPositionX = Constant.FINAL_TRANSLATE_X,
     preset = 'EASE_OUT_SINE',
   }) => {
-    const translateX = useSharedValue(startPositionX);
+    const translateX = useSharedValue(Constant.INITIAL_TRANSLATE_X);
 
     const animatedStyle = useAnimatedStyle(
       (): Reanimated.AnimatedStyleProp<ViewStyle> => {
         const skewX = interpolate(
           translateX.value,
-          [Constant.INITIAL_TRANSLATE_X, Constant.FINAL_TRANSLATE_X],
+          [Constant.INITIAL_TRANSLATE_X, finalPositionX],
           [Constant.MAX_SKEW_X, Constant.MIN_SKEW_X],
         );
 
         const opacity = interpolate(
           translateX.value,
-          [Constant.INITIAL_TRANSLATE_X, Constant.FINAL_TRANSLATE_X],
+          [Constant.INITIAL_TRANSLATE_X, finalPositionX],
           [Constant.MAX_OPACITY, Constant.MIN_OPACITY],
         );
 
@@ -54,7 +54,7 @@ export const LightSpeedOutRight: React.FC<ILightSpeedOutRightContainerProps> =
     useEffect(() => {
       translateX.value = withDelay(
         delayInMS,
-        withTiming(Constant.FINAL_TRANSLATE_X, {
+        withTiming(finalPositionX, {
           duration: durationInMS,
           easing: EasingPreset[preset],
         }),
