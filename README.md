@@ -1,1 +1,1 @@
-# ReactNativeShowCaseApp
+# ReactNativeAnimatedCSS

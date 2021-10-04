@@ -1,7 +1,23 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-import { name as appName } from './app.json';
-import { enableScreens } from 'react-native-screens';
-enableScreens(true);
+export {
+  BackInDown,
+  Constant as BackInDownConstant,
+  IBackInDownContainerProps as IBackInDownProps,
+} from '@component/BackInDown';
 
-AppRegistry.registerComponent(appName, () => App);
+export {
+  BackInLeft,
+  Constant as BackInLeftConstant,
+  IBackInLeftContainerProps as IBackInLeftProps,
+} from '@component/BackInLeft';
+
+export {
+  BackInRight,
+  Constant as BackInRightConstant,
+  IBackInRightContainerProps as IBackInRightProps,
+} from '@component/BackInRight';
+
+export {
+  BackInDown,
+  Constant as BackInDownConstant,
+  IBackInDownContainerProps as IBackInDownProps,
+} from '@component/BackInDown';
