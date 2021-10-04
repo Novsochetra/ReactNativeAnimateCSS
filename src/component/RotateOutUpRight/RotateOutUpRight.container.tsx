@@ -8,7 +8,7 @@ import Reanimated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-import { useComponentLayout } from '@component/Hinge/hook/useComponentLayout';
+import { useComponentLayout } from '@core/hook';
 import { EasingPreset } from '@core/animation/EasingPreset';
 import {
   Constant,

@@ -14,7 +14,7 @@ import {
   Constant,
   BouncPreset,
 } from '.';
-import { useComponentLayout } from './hook/useComponentLayout';
+import { useComponentLayout } from '@core/hook';
 
 export const Hinge: React.FC<IHingeContainerProps> = ({
   children,

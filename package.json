@@ -2,20 +2,22 @@
   "name": "react-native-animated-css",
   "version": "0.0.1",
   "description": "donut chart for react-native.",
-  "main": "index.js",
-  "module": "index.js",
-  "react-native": "index.js",
-  "types": "./dist/index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.tsx",
+  "types": "lib/typescript/src/index.d.ts",
   "files": [
     "src",
-    "dist",
+    "lib",
     "!**/__tests__",
     "!**/__fixtures__",
-    "!**/__mocks__"
+    "!**/__mocks__",
+    "src/component/",
+    "dist"
   ],
-  "@react-native-community/bob": {
+  "react-native-builder-bob": {
     "source": "src",
-    "output": "dist",
+    "output": "lib",
     "targets": [
       "commonjs",
       "module",
@@ -26,7 +28,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "yarn build",
     "prepare": "bob build",
-    "build": "tsc"
+    "build": "tsc",
+    "type:generate": "yarn type:generate:clean && yarn type:generate:cp-js-src && yarn type:generate:tsc-and-mv",
+    "type:generate:clean": "rm -rf lib/ && mkdir lib/",
+    "type:generate:cp-js-src": "cp -RL src/ lib/ && find ./lib -type f -name \"*.ts\" -and -not -name \"*.d.ts\" -delete",
+    "type:generate:tsc-and-mv": "yarn tsc && mv lib/reanimated2/src/reanimated2/* lib/reanimated2 && rm -r lib/reanimated2/src/"
   },
   "repository": {
     "type": "git",
@@ -56,6 +62,7 @@
     "babel-plugin-module-resolver": "^4.1.0",
     "hygen": "^6.1.0",
     "metro-react-native-babel-preset": "^0.64.0",
+    "react-native-builder-bob": "^0.18.2",
     "typescript": "^4.4.3"
   },
   "husky": {
@@ -76,6 +83,7 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "dist/"
+    "dist/",
+    "lib/"
   ]
 }

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { Constant, ISwingContainerProps, SwingPresentation } from '.';
-import { useComponentLayout } from '@component/Hinge/hook/useComponentLayout';
+import { useComponentLayout } from '@core/hook';
 import {
   useAnimatedStyle,
   useSharedValue,
